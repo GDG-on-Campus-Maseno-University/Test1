@@ -132,6 +132,9 @@ class QuantumDateIdentifier:
                 day = int(match.group(1))
                 month = int(match.group(2))
                 year = int(match.group(3))
+                # Validate ranges before creating datetime
+                if not (1 <= month <= 12 and 1 <= day <= 31):
+                    return None
                 return datetime(year, month, day)
             elif strp_fmt:
                 return datetime.strptime(match.group(0), strp_fmt)

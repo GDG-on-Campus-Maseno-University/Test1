@@ -4,6 +4,7 @@ Quantum Date Bot - Command line interface for date identification.
 """
 
 import argparse
+import json
 import sys
 from typing import Optional
 
@@ -138,7 +139,6 @@ def main(args: Optional[list] = None) -> int:
     
     # Output results
     if parsed_args.json:
-        import json
         output = []
         for r in results:
             item = {
